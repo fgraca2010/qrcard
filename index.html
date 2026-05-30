@@ -249,11 +249,12 @@
       margin-top: 5px;
     }
 
-    /* ── EMERGENCY ── */
-    .section-emergency {
+    /* ── EMERGENCY (inline within health section) ── */
+    .emergency-inline {
+      margin-top: 14px;
+      padding: 12px 14px;
       background: #FFF5F7;
-      border-left: 5px solid var(--tw-flamingo);
-      padding: 18px 24px 18px 23px;
+      border-left: 3px solid var(--tw-flamingo);
     }
 
     .emergency-label {
@@ -263,25 +264,32 @@
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--tw-flamingo);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       display: flex;
       align-items: center;
       gap: 5px;
     }
 
+    .emergency-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 4px 16px;
+    }
+
     .emergency-name {
       font-family: 'Bitter', serif;
       font-weight: 700;
-      font-size: 17px;
+      font-size: 15px;
       color: var(--tw-black);
     }
 
     .emergency-phone {
       font-family: 'Inter', sans-serif;
       font-weight: 700;
-      font-size: 22px;
+      font-size: 18px;
       color: var(--tw-flamingo);
-      margin-top: 4px;
       letter-spacing: 0.02em;
     }
 
@@ -404,9 +412,9 @@
       </div>
     </div>
 
-    <!-- CONVÊNIO -->
+    <!-- CONVÊNIO + EMERGÊNCIA -->
     <div class="section">
-      <div class="section-label">Plano de Saúde</div>
+      <div class="section-label">Plano de Saúde &amp; Emergência</div>
       <div class="field-grid">
         <div class="field full">
           <span class="field-key">Operadora</span>
@@ -415,6 +423,18 @@
         <div class="field full">
           <span class="field-key">Número da Carteirinha</span>
           <span class="field-val mono">775 081 023787 004</span>
+        </div>
+      </div>
+      <div class="emergency-inline">
+        <div class="emergency-label">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+          </svg>
+          Contato de Emergência
+        </div>
+        <div class="emergency-row">
+          <div class="emergency-name">Rubia Agatz</div>
+          <div class="emergency-phone"><a href="tel:+5521994223787">(21) 99422-3787</a></div>
         </div>
       </div>
     </div>
@@ -464,20 +484,6 @@
           <span class="hobby-icon">♟️</span>
           <span class="hobby-label">Jogos de Tabuleiro</span>
         </div>
-      </div>
-    </div>
-
-    <!-- EMERGÊNCIA -->
-    <div class="section section-emergency">
-      <div class="emergency-label">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
-        </svg>
-        Contato de Emergência
-      </div>
-      <div class="emergency-name">Rubia Agatz</div>
-      <div class="emergency-phone">
-        <a href="tel:+5521994223787">(21) 99422-3787</a>
       </div>
     </div>
 
