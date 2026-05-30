@@ -229,6 +229,68 @@
       letter-spacing: 0.04em;
     }
 
+    .card-view-btn {
+      background: none;
+      border: 1px solid var(--tw-wave);
+      color: var(--tw-wave);
+      cursor: pointer;
+      padding: 2px 5px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.60;
+      transition: opacity 0.15s;
+      flex-shrink: 0;
+    }
+
+    .card-view-btn:hover { opacity: 1; }
+
+    /* ── HEALTH CARD MODAL ── */
+    #card-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 1002;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    #card-modal.open { display: flex; }
+
+    .card-modal-inner {
+      position: relative;
+      max-width: 560px;
+      width: 100%;
+    }
+
+    .card-modal-inner img {
+      width: 100%;
+      display: block;
+      border: 2px solid var(--tw-flamingo);
+    }
+
+    .card-modal-close {
+      position: absolute;
+      top: -16px;
+      right: -16px;
+      width: 36px;
+      height: 36px;
+      background: var(--tw-flamingo);
+      color: var(--tw-white);
+      border: none;
+      font-size: 22px;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .card-modal-close:hover { background: var(--tw-wave); }
+
     .ciptea-view-btn {
       background: none;
       border: 1px solid var(--tw-amethyst);
@@ -587,7 +649,15 @@
         </div>
         <div class="field full">
           <span class="field-key">Número da Carteirinha</span>
-          <span class="field-val mono">775 081 023787 004</span>
+          <span class="field-val mono" style="display:flex;align-items:center;gap:8px;">
+            775 081 023787 004
+            <button class="card-view-btn" onclick="openCardModal()" title="Ver carteirinha">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </button>
+          </span>
         </div>
       </div>
       <div class="emergency-inline">
@@ -666,6 +736,14 @@
 
   <p class="hint">Toque no telefone para ligar · Versão digital para uso pessoal</p>
 
+  <!-- HEALTH CARD MODAL -->
+  <div id="card-modal" onclick="closeCardModal()">
+    <div class="card-modal-inner" onclick="event.stopPropagation()">
+      <img src="planosaude.jpeg" alt="Carteirinha Bradesco Saúde" />
+      <button class="card-modal-close" onclick="closeCardModal()" aria-label="Fechar">&times;</button>
+    </div>
+  </div>
+
   <!-- PDF MODAL -->
   <div id="pdf-modal" onclick="closePdfModal()">
     <div class="pdf-modal-inner" onclick="event.stopPropagation()">
@@ -686,6 +764,15 @@
   </div>
 
   <script>
+    function openCardModal() {
+      document.getElementById('card-modal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeCardModal() {
+      document.getElementById('card-modal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
     function openPdfModal() {
       var frame = document.getElementById('pdf-frame');
       if (!frame.src || frame.src === window.location.href) {
@@ -708,7 +795,7 @@
       document.body.style.overflow = '';
     }
     document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') { closeLightbox(); closePdfModal(); }
+      if (e.key === 'Escape') { closeLightbox(); closePdfModal(); closeCardModal(); }
     });
   </script>
 
