@@ -6,165 +6,194 @@
   <title>Felipe Graça — Cartão de Identificação</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@700&family=Inter:wght@360;400;500;630;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --tw-pink:    #E8175D;
-      --tw-black:   #000000;
-      --tw-white:   #FFFFFF;
-      --tw-gray-90: #1A1A1A;
-      --tw-gray-70: #4D4D4D;
-      --tw-gray-20: #CCCCCC;
-      --tw-gray-05: #F5F5F5;
-      --tw-pink-bg: #FFF0F4;
-      --radius:     0px;
+      /* Thoughtworks official palette */
+      --tw-flamingo:   #F2617A;   /* Flamingo pink  */
+      --tw-wave:       #003D4F;   /* Wave blue      */
+      --tw-mist:       #EDF1F3;   /* Mist gray      */
+      --tw-black:      #000000;   /* Onyx black     */
+      --tw-white:      #FFFFFF;
+      --tw-turmeric:   #CC850A;
+      --tw-jade:       #6B9E78;
+      --tw-sapphire:   #47A1AD;
+      --tw-amethyst:   #634F7D;
+      --tw-gray-mid:   #6B7280;
+      --tw-gray-light: #D1D5DB;
     }
 
     body {
-      font-family: 'Space Grotesk', system-ui, sans-serif;
-      background: var(--tw-gray-05);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-weight: 360;
+      background: var(--tw-mist);
       color: var(--tw-black);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      padding: 24px 16px 48px;
+      padding: 32px 16px 56px;
     }
 
-    /* ── CARD WRAPPER ── */
+    /* ── CARD ── */
     .card {
       background: var(--tw-white);
       width: 100%;
       max-width: 480px;
-      box-shadow: 0 4px 32px rgba(0,0,0,0.10);
-      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.06), 0 8px 32px rgba(0,61,79,0.12);
     }
 
-    /* ── HEADER BAR ── */
+    /* ── HEADER ── */
     .card-header {
-      background: var(--tw-black);
-      padding: 28px 28px 22px;
-      position: relative;
+      background: var(--tw-wave);
+      padding: 28px 28px 24px;
     }
 
-    .tw-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    .tw-wordmark {
+      font-family: 'Inter', sans-serif;
+      font-weight: 630;
+      font-size: 11px;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: rgba(237,241,243,0.60);
       margin-bottom: 20px;
     }
 
-    .tw-logo-mark {
-      width: 36px;
-      height: 36px;
-      background: var(--tw-pink);
+    .profile-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .profile-photo {
+      width: 80px;
+      height: 80px;
+      background: rgba(242,97,122,0.15);
+      border: 2px solid var(--tw-flamingo);
+      flex-shrink: 0;
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    .tw-logo-mark svg {
-      width: 22px;
-      height: 22px;
-      fill: var(--tw-white);
+    .profile-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
     }
 
-    .tw-logo-text {
-      color: var(--tw-white);
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      opacity: 0.85;
+    .profile-photo-placeholder {
+      font-size: 28px;
+      color: var(--tw-flamingo);
+      opacity: 0.6;
+    }
+
+    .profile-info {
+      flex: 1;
     }
 
     .card-name {
-      color: var(--tw-white);
-      font-size: 26px;
+      font-family: 'Bitter', Georgia, serif;
       font-weight: 700;
+      font-size: 24px;
+      color: var(--tw-white);
       line-height: 1.15;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.01em;
     }
 
     .card-role {
-      color: var(--tw-pink);
-      font-size: 12px;
+      font-family: 'Inter', sans-serif;
       font-weight: 500;
-      letter-spacing: 0.06em;
+      font-size: 11px;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
+      color: var(--tw-flamingo);
       margin-top: 6px;
-      line-height: 1.4;
+      line-height: 1.45;
     }
 
-    .pink-stripe {
-      height: 4px;
-      background: var(--tw-pink);
-      width: 100%;
+    /* ── FLAMINGO STRIPE ── */
+    .flamingo-stripe {
+      height: 5px;
+      background: var(--tw-flamingo);
     }
 
     /* ── SECTIONS ── */
     .section {
-      padding: 20px 28px;
-      border-bottom: 1px solid var(--tw-gray-05);
+      padding: 18px 28px;
+      border-bottom: 1px solid var(--tw-mist);
     }
 
-    .section:last-child {
-      border-bottom: none;
-    }
+    .section:last-child { border-bottom: none; }
 
     .section-label {
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
+      font-family: 'Inter', sans-serif;
+      font-weight: 630;
+      font-size: 9px;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--tw-gray-70);
+      color: var(--tw-wave);
       margin-bottom: 12px;
     }
 
     .field-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px 16px;
+      gap: 12px 20px;
     }
 
-    .field {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-
-    .field.full {
-      grid-column: 1 / -1;
-    }
+    .field { display: flex; flex-direction: column; gap: 2px; }
+    .field.full { grid-column: 1 / -1; }
 
     .field-key {
-      font-size: 10px;
+      font-family: 'Inter', sans-serif;
       font-weight: 500;
-      letter-spacing: 0.08em;
+      font-size: 9px;
+      letter-spacing: 0.10em;
       text-transform: uppercase;
-      color: var(--tw-gray-70);
+      color: var(--tw-gray-mid);
     }
 
     .field-val {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
       font-size: 14px;
-      font-weight: 500;
       color: var(--tw-black);
-      line-height: 1.35;
+      line-height: 1.4;
     }
 
     .field-val.mono {
       font-variant-numeric: tabular-nums;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.04em;
+      font-size: 13px;
     }
 
-    /* ── BADGES ── */
+    /* ── BLOOD TYPE ── */
+    .blood-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      background: var(--tw-flamingo);
+      color: var(--tw-white);
+      font-family: 'Bitter', serif;
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+    }
+
+    /* ── HEALTH BADGES ── */
     .badge-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 7px;
+      margin-bottom: 10px;
     }
 
     .badge {
@@ -172,146 +201,139 @@
       align-items: center;
       gap: 5px;
       padding: 4px 10px;
-      font-size: 12px;
-      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      font-weight: 630;
+      font-size: 11px;
       border: 1.5px solid currentColor;
     }
 
-    .badge-blood {
-      color: var(--tw-pink);
-      border-color: var(--tw-pink);
-      font-size: 16px;
-      padding: 6px 14px;
+    .badge-neuro   { color: var(--tw-amethyst); }
+    .badge-allergy { color: var(--tw-turmeric); }
+
+    /* ── AUTISM NOTE ── */
+    .autism-note {
+      padding: 10px 14px;
+      background: #F5F0FA;
+      border-left: 3px solid var(--tw-amethyst);
+      font-size: 12px;
+      font-weight: 400;
+      color: #3B1F5E;
+      line-height: 1.55;
     }
 
-    .badge-neuro {
-      color: #6B21A8;
-      border-color: #6B21A8;
-    }
-
-    .badge-allergy {
-      color: #B45309;
-      border-color: #B45309;
-    }
-
-    /* ── EMERGENCY SECTION ── */
-    .section-emergency {
-      background: var(--tw-pink-bg);
-      border-left: 4px solid var(--tw-pink);
-      padding: 20px 24px;
-      margin: 0;
-      border-bottom: none;
-    }
-
-    .emergency-label {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--tw-pink);
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .emergency-contact-name {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--tw-black);
-    }
-
-    .emergency-contact-phone {
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--tw-pink);
-      letter-spacing: 0.03em;
-      margin-top: 2px;
-    }
-
-    .emergency-tel-link {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .emergency-tel-link:hover {
-      text-decoration: underline;
+    .autism-note strong {
+      font-weight: 630;
     }
 
     /* ── MEDS ── */
-    .med-list {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
+    .med-list { display: flex; flex-direction: column; gap: 7px; }
 
     .med-item {
       display: flex;
       align-items: flex-start;
-      gap: 8px;
+      gap: 10px;
       font-size: 13px;
-      font-weight: 500;
+      font-weight: 400;
     }
 
     .med-dot {
       width: 6px;
       height: 6px;
-      background: var(--tw-pink);
+      min-width: 6px;
+      background: var(--tw-flamingo);
       border-radius: 50%;
-      flex-shrink: 0;
       margin-top: 5px;
     }
 
-    /* ── AUTISM NOTE ── */
-    .autism-note {
-      margin-top: 10px;
-      padding: 10px 12px;
-      background: #F3E8FF;
-      border-left: 3px solid #7C3AED;
-      font-size: 12px;
-      color: #4C1D95;
-      line-height: 1.5;
+    /* ── EMERGENCY ── */
+    .section-emergency {
+      background: #FFF5F7;
+      border-left: 5px solid var(--tw-flamingo);
+      padding: 18px 24px 18px 23px;
     }
+
+    .emergency-label {
+      font-family: 'Inter', sans-serif;
+      font-weight: 630;
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--tw-flamingo);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .emergency-name {
+      font-family: 'Bitter', serif;
+      font-weight: 700;
+      font-size: 17px;
+      color: var(--tw-black);
+    }
+
+    .emergency-phone {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 22px;
+      color: var(--tw-flamingo);
+      margin-top: 4px;
+      letter-spacing: 0.02em;
+    }
+
+    .emergency-phone a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .emergency-phone a:hover { text-decoration: underline; }
 
     /* ── FOOTER ── */
     .card-footer {
-      background: var(--tw-black);
-      padding: 14px 28px;
+      background: var(--tw-wave);
+      padding: 12px 28px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
-    .footer-email {
-      font-size: 11px;
-      color: var(--tw-gray-20);
+    .footer-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 400;
+      color: rgba(237,241,243,0.55);
       letter-spacing: 0.02em;
     }
 
-    .footer-dob {
-      font-size: 11px;
-      color: var(--tw-gray-20);
-      letter-spacing: 0.02em;
-    }
-
-    /* ── PRINT / SHARE HINT ── */
+    /* ── HINT ── */
     .hint {
-      margin-top: 20px;
+      margin-top: 18px;
+      font-family: 'Inter', sans-serif;
       font-size: 11px;
-      color: var(--tw-gray-70);
+      color: var(--tw-gray-mid);
       text-align: center;
+    }
+
+    /* ── PHOTO UPLOAD HINT (shown only when no photo) ── */
+    .photo-hint {
+      font-size: 9px;
+      text-align: center;
+      color: var(--tw-flamingo);
+      margin-top: 4px;
+      opacity: 0.7;
       letter-spacing: 0.04em;
     }
 
-    @media (max-width: 360px) {
-      .card-name { font-size: 22px; }
+    @media (max-width: 380px) {
+      .card-name { font-size: 20px; }
       .field-grid { grid-template-columns: 1fr; }
+      .profile-photo { width: 64px; height: 64px; }
     }
 
     @media print {
       body { background: white; padding: 0; }
       .card { box-shadow: none; max-width: 100%; }
-      .hint { display: none; }
+      .hint, .photo-hint { display: none; }
     }
   </style>
 </head>
@@ -321,21 +343,23 @@
 
     <!-- HEADER -->
     <div class="card-header">
-      <div class="tw-logo">
-        <div class="tw-logo-mark">
-          <!-- Thoughtworks "T" mark approximation -->
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <rect x="2" y="2" width="20" height="4" />
-            <rect x="9" y="6" width="6" height="16" />
-          </svg>
+      <div class="tw-wordmark">Thoughtworks</div>
+      <div class="profile-row">
+        <div>
+          <div class="profile-photo" id="photoBox">
+            <!-- Substitua o conteúdo abaixo por: <img src="sua-foto.jpg" alt="Felipe Graça" /> -->
+            <span class="profile-photo-placeholder">FG</span>
+          </div>
+          <div class="photo-hint">foto</div>
         </div>
-        <span class="tw-logo-text">Thoughtworks</span>
+        <div class="profile-info">
+          <div class="card-name">Felipe Almeida<br />da Graça</div>
+          <div class="card-role">Regional Chief Cloud &amp;<br />Partner Solution Architect</div>
+        </div>
       </div>
-      <div class="card-name">Felipe Almeida<br />da Graça</div>
-      <div class="card-role">Regional Chief Cloud &amp; Partner<br />Solution Architect</div>
     </div>
 
-    <div class="pink-stripe"></div>
+    <div class="flamingo-stripe"></div>
 
     <!-- IDENTIFICAÇÃO -->
     <div class="section">
@@ -343,13 +367,11 @@
       <div class="field-grid">
         <div class="field">
           <span class="field-key">Nascimento</span>
-          <span class="field-val mono">04/09/1984</span>
+          <span class="field-val mono">04 / 09 / 1984</span>
         </div>
-        <div class="field">
+        <div class="field" style="align-items:flex-start;">
           <span class="field-key">Tipo Sanguíneo</span>
-          <div class="badge-row">
-            <span class="badge badge-blood">B+</span>
-          </div>
+          <span class="blood-badge">B+</span>
         </div>
         <div class="field full">
           <span class="field-key">E-mail</span>
@@ -361,7 +383,7 @@
     <!-- SAÚDE -->
     <div class="section">
       <div class="section-label">Informações de Saúde</div>
-      <div class="badge-row" style="margin-bottom: 14px;">
+      <div class="badge-row">
         <span class="badge badge-neuro">♾ Autista</span>
         <span class="badge badge-allergy">⚠ Alérgico a Crustáceos</span>
         <span class="badge badge-allergy">⚠ Alergias a medicamentos desconhecidas</span>
@@ -415,26 +437,26 @@
     <!-- EMERGÊNCIA -->
     <div class="section section-emergency">
       <div class="emergency-label">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
           <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
         </svg>
         Contato de Emergência
       </div>
-      <div class="emergency-contact-name">Rubia Agatz</div>
-      <div class="emergency-contact-phone">
-        <a class="emergency-tel-link" href="tel:+5521994223787">(21) 99422-3787</a>
+      <div class="emergency-name">Rubia Agatz</div>
+      <div class="emergency-phone">
+        <a href="tel:+5521994223787">(21) 99422-3787</a>
       </div>
     </div>
 
     <!-- FOOTER -->
     <div class="card-footer">
-      <span class="footer-email">felipe.graca@thoughtworks.com</span>
-      <span class="footer-dob">Nasc. 04/09/1984</span>
+      <span class="footer-text">felipe.graca@thoughtworks.com</span>
+      <span class="footer-text">Nasc. 04/09/1984</span>
     </div>
 
   </div>
 
-  <p class="hint">Toque no telefone de emergência para ligar · Versão digital para uso pessoal</p>
+  <p class="hint">Toque no telefone para ligar · Versão digital para uso pessoal</p>
 
 </body>
 </html>
